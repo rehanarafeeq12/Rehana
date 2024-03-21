@@ -1,0 +1,110 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web_Design</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css">
+
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            background-image: url("{% static 'images/banner.jpg' %}");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <header class="fixed-top p-auto">
+        <div class="container">
+            <nav class="navbar navbar-expand p-0">
+                <a class="navbar-brand mr-0 pr-4" href="index.html">
+                    <img src="{% static 'images/fest.png' %}" alt="logo" style="width: 120px;">
+                </a>
+                <a href="javascript:void(0)" id="cls-btn">&times;</a>
+                <div class="navbar-collapse nav-sec" id="sidenav">
+                    <ul class="navbar-nav mr-auto header-nav">
+                        
+                </div>
+                    <div class="search-box mr-lg-0">
+                        <input type="text" placeholder="Search here..." name="search1">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                       
+                    
+                </div>
+                 </nav>
+            </div>
+    </header>
+    <div class="card" style="margin-top: 150px; width: 900px;margin-left: 280px; background-color: honeydew;">
+
+        <div class="card-header">
+            <strong class="card-title " style="color:darkorange; font-family:cursive; font-size:x-large;
+            margin-left: 300px;"> Select Fest Year</strong>
+        </div>
+        <div class="card-body" style="text-align: center;">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Program_Name</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in data %}
+                    <tr>
+                        <td>{{i.Year}}</td>
+                        <td>{{i.Program_Name}}</td>
+                       <td> <a href="{% url 'homepage1' i.id %}" class="btn btn-primary" style="width: min-content; ">Explore {{i.Year}}</a></td>
+    
+    
+    
+                    </tr>
+    
+                    {% endfor %}
+                </tbody>
+            </table>
+    
+        </div>
+    
+    </div>
+    
+    
+<button class="scrolltop-btn">
+    <i class="fa fa-angle-up"></i>
+</button>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.js"></script>
+<script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+<script src="{% static 'js/script.js' %}"></script>
+
+<script>
+    $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+        event.preventDefault();
+        $(this).ekkoLightbox();
+    });
+
+    
+</script>
+</body>
+</html>

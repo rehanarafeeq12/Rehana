@@ -1,0 +1,41 @@
+{% extends 'admin1.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="card">
+
+    <div class="card-header">
+        <strong class="card-title "
+            style="color:blue; margin-left: 400px; font-family:'Franklin Gothic Medium', 
+            'Arial Narrow', Arial, sans-serif; font-size:x-large;">Years of the 
+           Fest</strong>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Program_Name</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in data %}
+                <tr>
+                    <td>{{i.Year}}</td>
+                    <td>{{i.Program_Name}}</td>
+                   <td> <a href="{% url 'yearloginpage' %}" class="btn btn-primary" style="width: min-content; ">Enter Admin Dashboard  {{i.Year}}</a></td>
+
+
+
+                </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'admin1.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<div class="card">
+
+    <div class="card-header">
+        <strong class="card-title "
+            style="color:blue; margin-left: 400px; font-family:'Franklin Gothic Medium',
+             'Arial Narrow', Arial, sans-serif; font-size:x-large;">Year
+            of the Fest</strong>
+    </div>
+    <div class="card-body" >
+
+        <body>
+            <form method="post">
+                {% csrf_token %}
+                {{form1|crispy}}
+                {{form|crispy}}
+                <div style="text-align: center;">
+                    <button type="submit" class="btn btn-success">Save</button>
+                </div>
+            </form>
+        </body>
+    </div>
+</div>
+{% endblock %}

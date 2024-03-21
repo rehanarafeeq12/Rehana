@@ -1,0 +1,40 @@
+{% extends 'main_admin.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="card">
+
+        <div class="card-header  bg-primary">
+            <strong class="card-title " style="color:white; margin-left: 400px; font-family: cursive;">Registered
+                Students</strong>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>School_Name</th>
+                        <th>Student_Name</th>
+                        <th>DOB</th>
+                        <th>Class</th>
+                        <th>Contact_No</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in data %}
+                    <tr>
+                        <td>{{i.School_Name}}</td>
+                        <td>{{i.Student_Name}}</td>
+                        <td>{{i.DOB}}</td>
+                        <td>{{i.Class}}</td>
+                        <td>{{i.Contact_No}}</td>
+                        
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+</div>
+           
+            
+            {% endblock %}
