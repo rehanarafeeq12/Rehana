@@ -20,26 +20,35 @@ class School(models.Model):
     def __str__(self):
       return self.School_Name
     
+class year(models.Model):
+  user=models.OneToOneField(User,on_delete=models.CASCADE,related_name='year',null=True, blank=True)
+  Year=models.DateField()
+  Program_Name=models.CharField(max_length=100)
+   
+  def __str__(self):
+     return str(self.Year)
+    
 class Student(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True,related_name='student')
     School_Name=models.ForeignKey(School,on_delete=models.CASCADE) 
     Student_Name=models.CharField(max_length=200)
     DOB=models.DateField()
     Class=models.CharField(max_length=10)
+    Academic_year=models.ForeignKey(year,on_delete=models.CASCADE)
     Contact_No=models.CharField(max_length=10)
     def __str__(self):
       return self.Student_Name
     
 class contest(models.Model):
    user=models.ForeignKey(User,on_delete=models.CASCADE,related_name='contest')
-   Si_No=models.CharField(max_length=5)
    Contest_Name=models.TextField()
+   Contest_year=models.ForeignKey(year,on_delete=models.CASCADE,related_name='YEAR',null=True,blank=True)
    def __str__(self):
       return self.Contest_Name
 
 class participant(models.Model):  
    user=models.ForeignKey(User,on_delete=models.CASCADE,related_name='participants')
-   Name=models.CharField(max_length=200)
+   Name=models.ForeignKey(Student,on_delete=models.CASCADE)
    Class=models.CharField(max_length=20)
    Contest_Name=models.TextField()
 
@@ -51,22 +60,20 @@ class judges(models.Model):
 
 class result(models.Model):   
    user=models.ForeignKey(User,on_delete=models.CASCADE,related_name='results')
-   First=models.CharField(max_length=100)
-   Second=models.CharField(max_length=100)
+   First=models.ForeignKey(Student,on_delete=models.CASCADE,related_name='first')
+   Second=models.ForeignKey(Student,on_delete=models.CASCADE,related_name='second')
    Contest_Name=models.ForeignKey(contest,on_delete=models.CASCADE) 
 
 class programmes(models.Model):  
    user=models.ForeignKey(User,on_delete=models.CASCADE,related_name='programme')
-   Si_No=models.CharField(max_length=100)
    Programme_Name=models.CharField(max_length=500)
    def __str__(self):
       return self.Programme_Name
 
 class performer(models.Model):   
    user=models.ForeignKey(User,on_delete=models.CASCADE,related_name='performers')
-   Si_No=models.CharField(max_length=5)
    Programme_Name=models.ForeignKey(programmes,on_delete=models.CASCADE)
-   Performer_Names=models.CharField(max_length=100)
+   Performer_Names=models.ForeignKey(Student,on_delete=models.CASCADE)
 
 class venue(models.Model):   
    user=models.ForeignKey(User,on_delete=models.CASCADE,related_name='venue')
@@ -75,7 +82,8 @@ class venue(models.Model):
 
 class volunteers(models.Model):  
    user=models.ForeignKey(User,on_delete=models.CASCADE,related_name='vol')
-   Name=models.CharField(max_length=100)
+   Name=models.ForeignKey(Student,on_delete=models.CASCADE)
+   Duty=models.CharField(max_length=100)
    Contact_No=models.CharField(max_length=10)
 
 class guests(models.Model):   
@@ -106,7 +114,6 @@ class teachers(models.Model):
    Contact_No=models.CharField(max_length=50)
 
 class feedbacks(models.Model):   
-   user=models.ForeignKey(User,on_delete=models.CASCADE,related_name='feedback')
    Your_name=models.CharField(max_length=20)
    Your_mobile_no=models.CharField(max_length=10)
    Feedbacks=models.TextField()
@@ -118,14 +125,14 @@ class contact(models.Model):
    Message=models.CharField(max_length=500)
    def __str__(self):
       return self.Name
+years=(
+   ('2024-25','2024-25'),
+   ('2025-26','2025-26'),
+   ('2026-27','2026-27'),
+   ('2027-28','2027-28'),
+   ('2028-29','2028-29')
+)
 
-class year(models.Model):
-  user=models.OneToOneField(User,on_delete=models.CASCADE,related_name='year',null=True, blank=True)
-  Year=models.CharField(max_length=10)
-  Program_Name=models.CharField(max_length=100)
-   
-  def __str__(self):
-     return self.Year
 
 class history(models.Model):
    History=models.TextField()

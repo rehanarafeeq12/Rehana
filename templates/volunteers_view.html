@@ -16,6 +16,7 @@
                 <tr>
                     <th>Name</th>
                     <th>Contact_No</th>
+                    <th>Duty</th>
                     <th>Update</th>
                     <th>Delete</th>
                 </tr>
@@ -25,6 +26,7 @@
                 <tr>
                     <td>{{i.Name}}</td>
                     <td>{{i.Contact_No}}</td>
+                    <td>{{i.Duty}}</td>
                     <td><a href="{% url 'update_volunteers' i.id %}" type="button" class="btn btn-info">Update</a></td>
                     <td><a href="{% url 'del_volunteers' i.id %}" type="button" class="btn btn-danger">Delete</a></td>
 

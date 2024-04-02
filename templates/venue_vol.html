@@ -40,7 +40,7 @@
                 <div class="navbar-collapse nav-sec" id="sidenav">
                     <ul class="navbar-nav mr-auto header-nav">
                         <li class="nav-item active">
-                            <a class="nav-link active text-white" href="{% url 'homepage' i.id %}">
+                            <a class="nav-link active text-white" href="{% url 'homepage' %}">
                                 Home
                             </a>
                         </li>
@@ -97,10 +97,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for i in data %}
+                    {% for v in vn %}
                     <tr>
-                        <td>{{i.Venue}}</td>
-                        <td>{{i.Place}}</td>
+                        <td>{{v.Venue}}</td>
+                        <td>{{v.Place}}</td>
                         
     
     
@@ -126,15 +126,16 @@
                 <tr>
                     <th>Name</th>
                     <th>Contact_No</th>
+                    <th>Duty</th>
                    
                 </tr>
             </thead>
             <tbody>
-                {% for i in data %}
+                {% for V in vl %}
                 <tr>
-                    <td>{{i.Name}}</td>
-                    <td>{{i.Contact_No}}</td>
-                    
+                    <td>{{V.Name}}</td>
+                    <td>{{V.Contact_No}}</td>
+                    <td>{{V.Duty}}</td>
 
 
                 </tr>

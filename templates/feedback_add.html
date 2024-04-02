@@ -41,7 +41,7 @@
                 <div class="navbar-collapse nav-sec" id="sidenav">
                     <ul class="navbar-nav mr-auto header-nav">
                         <li class="nav-item active">
-                            <a class="nav-link active text-white" href="{% url 'homepage' i.id %}">
+                            <a class="nav-link active text-white" href="{% url 'homepage' %}">
                                 Home
                             </a>
                         </li>
@@ -65,6 +65,11 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" href="{% url 'resultlist' %}">
                                 Result
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{% url 'logout' %}">
+                                Logout
                             </a>
                         </li>
     

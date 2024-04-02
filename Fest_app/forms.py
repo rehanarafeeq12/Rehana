@@ -28,7 +28,7 @@ class StudentReg(forms.ModelForm):
 class contest_list(forms.ModelForm):
     class Meta:
         model=contest
-        exclude=('user',)
+        exclude=('user','Contest_year')
 class participant_list(forms.ModelForm):
     class Meta:
         model=participant
@@ -92,6 +92,7 @@ class ContestFilterForm(forms.Form):
     Contest_Name=forms.CharField()
 
 class yearform(forms.ModelForm):
+    Year=forms.DateField(widget=DateInput)
     class Meta:
         model=year
         exclude=('user',)

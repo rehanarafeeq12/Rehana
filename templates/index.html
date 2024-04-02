@@ -38,6 +38,11 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link text-white" href="{% url 'school_history' %}">
+                            History
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link text-white" href="{% url 'contestlist' %}">
                             Contest Lists
                         </a>
@@ -57,6 +62,11 @@
                     <li class="nav-item">
                         <a class="nav-link text-white" href="{% url 'resultlist' %}">
                             Result
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{% url 'logout' %}">
+                            Logout
                         </a>
                     </li>
 
@@ -79,7 +89,7 @@
     <div class="container" data-aos="fade-up" data-aos-duration="1000">
         <h1>Celebrate the excellence of our school with annual day</h1>
         <h6>Let's rejoice in happiness and celebrations!</h6>
-        <a href="{% url 'Yearpage' %}" class="get-started-btn">Explore more</a>
+        <a href="{% url 'explorepage' %}" class="get-started-btn">Explore more</a>
     </div>
 </section>
 
@@ -162,7 +172,7 @@
                 <ul id="tab-1" class="tab-content current">
                     <li data-aos="fade-up" data-aos-duration="1000">
 
-                        <img src="{% static 'images/achievements1.jpeg' %}" style="width: 250px;">
+                        <img src="{% static 'images/achievements1.jpeg' %}" style="width: 220px; height: 200px;">
 
                     </li>
                     <li data-aos="fade-up" data-aos-duration="1200">
@@ -185,14 +195,14 @@
                 </ul>
                 <ul id="tab-2" class="tab-content article-section">
                     <li>
-                        <img src="{% static 'images/school management.jpeg' %}" style="width: 350px;">
+                        <img src="{% static 'images/pexels-pixabay-159740.jpg' %}" style="width: 350px; height: 250px;">
 
                     </li>
                     <li>
-                        <img src="{% static 'images/school-management.jpg' %}" style="width: 200px;">
+                        <img src="{% static 'images/pexels-caleb-oquendo-3877563.jpg' %}" style="width: 300px; height: 250px;">
 
                     </li>
-                    <div style="text-align: center;">
+                    <div style="text-align: center; margin-top: 20px;">
 
                         <h4>School Managements</h4>
                         <p>Leadership is not about being incharge; but about inspiring others to unleash their
@@ -205,14 +215,14 @@
                 </ul>
                 <ul id="tab-3" class="tab-content article-section">
                     <li>
-                        <img src="{% static 'images/OIP (9).jpeg' %}" style="width: 350px;">
+                        <img src="{% static 'images/pexels-max-fischer-5212331.jpg' %}" style="width: 350px; height: 250px;">
 
                     </li>
                     <li>
-                        <img src="{% static 'images/goodteacher.webp' %}" style="width: 200px;">
+                        <img src="{% static 'images/goodteacher.webp' %}" style="width:250px;">
 
                     </li>
-                    <div style="text-align: center;">
+                    <div style="text-align: center; margin-top: 20px;">
 
                         <h4>Teachers Faculty</h4>
                         <p>One book, one pen, one child and one teacher can change the world..<br>

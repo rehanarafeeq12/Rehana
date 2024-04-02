@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <style>
         body {
-            background-image: url("{% static 'images/R (1).jpeg' %}");
+            background-image: url("{% static 'images/pexels-vladyslav-dukhin-296649.jpg' %}");
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -40,7 +40,7 @@
                 <div class="navbar-collapse nav-sec" id="sidenav">
                     <ul class="navbar-nav mr-auto header-nav">
                         <li class="nav-item active">
-                            <a class="nav-link active text-white" href="{% url 'homepage' i.id %}">
+                            <a class="nav-link active text-white" href="{% url 'homepage' %}">
                                 Home
                             </a>
                         </li>
@@ -87,22 +87,16 @@
         </div>
         <div class="card-body">
             <table class="table">
-                <thead>
-                    <tr>
-                        <th>Photoes</th>
-                        <th>Videos</th>
-                       
-                    </tr>
-                </thead>
+                
                 <tbody>
                     {% for i in data %}
                     <tr>
                         <td><img src="{{i.Photoes.url}}" style="height: 100px; "> </td>
-                        <td><video width='400' controls>
+                        <!-- <td><video width='400' controls>
                             <source src="{{i.Videos.url}}" type="video/mp4"> </td>
     
                         </video>
-    
+     -->
                         
                     </tr>
     

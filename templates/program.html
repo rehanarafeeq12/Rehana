@@ -40,7 +40,7 @@
                 <div class="navbar-collapse nav-sec" id="sidenav">
                     <ul class="navbar-nav mr-auto header-nav">
                         <li class="nav-item active">
-                            <a class="nav-link active text-white" href="{% url 'homepage' i.id %}">
+                            <a class="nav-link active text-white" href="{% url 'homepage' %}">
                                 Home
                             </a>
                         </li>
@@ -98,7 +98,7 @@
                 <tbody>
                     {% for i in data %}
                     <tr>
-                        <td>{{i.Si_No}}</td>
+                        <td>{{forloop.counter}}</td>
                         <td>{{i.Programme_Name}}</td>
                         <td>{{i.Performer_Names}}</td>
                         

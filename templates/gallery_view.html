@@ -24,10 +24,7 @@
                 {% for i in data %}
                 <tr>
                     <td><img src="{{i.Photoes.url}}" style="height: 100px; "> </td>
-                    <td><video width='400' controls>
-                        <source src="{{i.Videos.url}}" type="video/mp4"> </td>
-
-                    </video>
+                    
 
                     <td><a href="{% url 'update_gallery' i.id %}" type="button" class="btn btn-info">Update</a></td>
                     <td><a href="{% url 'del_gallery' i.id %}" type="button" class="btn btn-danger">Delete</a></td>

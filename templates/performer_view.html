@@ -23,7 +23,7 @@
             <tbody>
                 {% for i in data %}
                 <tr>
-                    <td>{{i.Si_No}}</td>
+                    <td>{{forloop.counter}}</td>
                     <td>{{i.Programme_Name}}</td>
                     <td>{{i.Performer_Names}}</td>
                     <td><a href="{% url 'update_performer' i.id %}" type="button" class="btn btn-info">Update</a></td>
