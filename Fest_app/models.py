@@ -37,36 +37,43 @@ class Student(models.Model):
     Academic_year=models.ForeignKey(year,on_delete=models.CASCADE)
     Contact_No=models.CharField(max_length=10)
     def __str__(self):
-      return self.Student_Name
+      return f"{self.Student_Name}(Class:{self.Class})"
     
 class contest(models.Model):
    user=models.ForeignKey(User,on_delete=models.CASCADE,related_name='contest')
    Contest_Name=models.TextField()
-   Contest_year=models.ForeignKey(year,on_delete=models.CASCADE,related_name='YEAR',null=True,blank=True)
+   Contest_year=models.ForeignKey(year,on_delete=models.CASCADE,related_name='YEAR')
    def __str__(self):
       return self.Contest_Name
 
 class participant(models.Model):  
    user=models.ForeignKey(User,on_delete=models.CASCADE,related_name='participants')
    Name=models.ForeignKey(Student,on_delete=models.CASCADE)
-   Class=models.CharField(max_length=20)
    Contest_Name=models.TextField()
+   Contest_year=models.ForeignKey(year,on_delete=models.CASCADE,related_name='yr')
+
 
 class judges(models.Model):  
    user=models.ForeignKey(User,on_delete=models.CASCADE,related_name='judge')
    Name=models.CharField(max_length=100)
    Contest_Name=models.ForeignKey(contest,on_delete=models.CASCADE) 
    Room_No=models.CharField(max_length=5)
+   Contest_year=models.ForeignKey(year,on_delete=models.CASCADE,related_name='YR')
+
 
 class result(models.Model):   
    user=models.ForeignKey(User,on_delete=models.CASCADE,related_name='results')
    First=models.ForeignKey(Student,on_delete=models.CASCADE,related_name='first')
    Second=models.ForeignKey(Student,on_delete=models.CASCADE,related_name='second')
    Contest_Name=models.ForeignKey(contest,on_delete=models.CASCADE) 
+   Contest_year=models.ForeignKey(year,on_delete=models.CASCADE,related_name='Yea')
+
 
 class programmes(models.Model):  
    user=models.ForeignKey(User,on_delete=models.CASCADE,related_name='programme')
    Programme_Name=models.CharField(max_length=500)
+   Contest_year=models.ForeignKey(year,on_delete=models.CASCADE,related_name='Yr')
+
    def __str__(self):
       return self.Programme_Name
 
@@ -74,28 +81,38 @@ class performer(models.Model):
    user=models.ForeignKey(User,on_delete=models.CASCADE,related_name='performers')
    Programme_Name=models.ForeignKey(programmes,on_delete=models.CASCADE)
    Performer_Names=models.ForeignKey(Student,on_delete=models.CASCADE)
+   Contest_year=models.ForeignKey(year,on_delete=models.CASCADE,related_name='y')
+
 
 class venue(models.Model):   
    user=models.ForeignKey(User,on_delete=models.CASCADE,related_name='venue')
    Venue=models.CharField(max_length=100)
    Place=models.CharField(max_length=100)
+   Contest_year=models.ForeignKey(year,on_delete=models.CASCADE,related_name='yeaR')
+
 
 class volunteers(models.Model):  
    user=models.ForeignKey(User,on_delete=models.CASCADE,related_name='vol')
    Name=models.ForeignKey(Student,on_delete=models.CASCADE)
    Duty=models.CharField(max_length=100)
    Contact_No=models.CharField(max_length=10)
+   Contest_year=models.ForeignKey(year,on_delete=models.CASCADE,related_name='yEAR')
+
 
 class guests(models.Model):   
    user=models.ForeignKey(User,on_delete=models.CASCADE,related_name='guest')
    Name=models.CharField(max_length=100)
    Photoes=models.ImageField(upload_to='guest_images')
    Details=models.CharField(max_length=500)
+   Contest_year=models.ForeignKey(year,on_delete=models.CASCADE,related_name='YeaR')
+
 
 class gallery(models.Model):    
    user=models.ForeignKey(User,on_delete=models.CASCADE,related_name='gallery')
    Photoes=models.ImageField(upload_to='gallery_images')
    Videos=models.FileField(upload_to='gallery_videos')
+   Contest_year=models.ForeignKey(year,on_delete=models.CASCADE,related_name='yR')
+
 
 class achievements(models.Model):    
    user=models.ForeignKey(User,on_delete=models.CASCADE,related_name='achivmnt')
@@ -137,6 +154,5 @@ years=(
 class history(models.Model):
    History=models.TextField()
 
-class school_photoes(models.Model):
-   photoes=models.ImageField(upload_to='school_photo')
+
 

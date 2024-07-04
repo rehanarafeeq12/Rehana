@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
-from Fest_app.models import School, Student, User, achievements, contact, contest, feedbacks, gallery, guests, history, judges, management, participant, performer, programmes, result, school_photoes, teachers, venue, volunteers, year
+from Fest_app.models import School, Student, User, achievements, contact, contest, feedbacks, gallery, guests, history, judges, management, participant, performer, programmes, result, teachers, venue, volunteers, year
 
 class DateInput(forms.DateInput):
     input_type='date'
@@ -28,7 +28,7 @@ class StudentReg(forms.ModelForm):
 class contest_list(forms.ModelForm):
     class Meta:
         model=contest
-        exclude=('user','Contest_year')
+        exclude=('user',)
 class participant_list(forms.ModelForm):
     class Meta:
         model=participant
@@ -102,10 +102,6 @@ class historyform(forms.ModelForm):
         model=history
         fields='__all__'
 
-class photoform(forms.ModelForm):
-    class Meta:
-        model=school_photoes
-        fields='__all__'
 
 
         

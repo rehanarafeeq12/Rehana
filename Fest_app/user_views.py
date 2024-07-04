@@ -2,17 +2,25 @@ from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
 from Fest_app.forms import ContestFilterForm, contactform, feedback_form
-from Fest_app.models import Student, achievements, contest, feedbacks, gallery, guests, history, judges, management, participant, performer, programmes, result, teachers, venue, volunteers, year
+from Fest_app.models import Student, achievements, contest, feedbacks, gallery, guests, history, judges, management, participant, performer, programmes, result, teachers, venue, volunteers
 from datetime import datetime
 current_year=datetime.now().year
 
 def contestlist(request):
-    data=contest.objects.filter(Contest_year=Student.Academic_year)
+    student=Student.objects.get(user=request.user)
+    print(student)
+    academic_year=student.Academic_year
+    print(academic_year)
+    data=contest.objects.filter(Contest_year=academic_year)
     return render(request,'contest_list.html',{'data':data})
 
 def participantlist(request):
+    student=Student.objects.get(user=request.user)
+    print(student)
+    academic_year=student.Academic_year
+    print(academic_year)
     Contest_Name=request.GET.get('Contest_Name')
-    participants=participant.objects.all()
+    participants=participant.objects.filter(Contest_year=academic_year)
     if Contest_Name:
         participants=participants.filter(Contest_Name__icontains=Contest_Name)
     context={
@@ -22,35 +30,56 @@ def participantlist(request):
     return render(request,'participant_lists.html',context)
 
 def judgeslist(request):
-    data=judges.objects.all()
+    student=Student.objects.get(user=request.user)
+    print(student)
+    academic_year=student.Academic_year
+    print(academic_year)
+    data=judges.objects.filter(Contest_year=academic_year)
     return render(request,'judges_list.html',{'data':data})
 
 def resultlist(request):
-    
-    data=result.objects.all()
+    student=Student.objects.get(user=request.user)
+    print(student)
+    academic_year=student.Academic_year
+    print(academic_year)
+    data=result.objects.filter(Contest_year=academic_year)
     return render(request,'result.html',{'data':data})
 
 
 def guestlist(request):
-   
-    data=guests.objects.all()
+    student=Student.objects.get(user=request.user)
+    print(student)
+    academic_year=student.Academic_year
+    print(academic_year)
+    data=guests.objects.filter(Contest_year=academic_year)
     return render(request,'guest.html',{'data':data})
 
 def programlist(request):
-    data=performer.objects.all()
+    student=Student.objects.get(user=request.user)
+    print(student)
+    academic_year=student.Academic_year
+    print(academic_year)
+    data=performer.objects.filter(Contest_year=academic_year)
     return render(request,'program.html',{'data':data})
 
 def venue_vol(request):
-    vn=venue.objects.all()
-    vl=volunteers.objects.all()
+    student=Student.objects.get(user=request.user)
+    print(student)
+    academic_year=student.Academic_year
+    print(academic_year)
+    vn=venue.objects.filter(Contest_year=academic_year)
+    vl=volunteers.objects.filter(Contest_year=academic_year)
     return render(request,'venue_vol.html',{'vn':vn,'vl':vl})
 
 def photoshop(request):
-    data=gallery.objects.all()
+    student=Student.objects.get(user=request.user)
+    print(student)
+    academic_year=student.Academic_year
+    print(academic_year)
+    data=gallery.objects.filter(Contest_year=academic_year)
     return render(request,'photoshop.html',{'data':data})
 
 def school_achievements(request):
-    
     data=achievements.objects.all()
     return render(request,'achievements.html',{'data':data})
 

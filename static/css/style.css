@@ -199,6 +199,7 @@ section.banner {
     align-items: center;
     padding-top: 225px;
     padding-bottom: 140px;
+    margin-top: auto;
 }
 
 section.banner .container {
@@ -312,8 +313,8 @@ section.index-about-sec ul li .index-abt-content p {
 section.index-services {
     width: 100%;
     background: url(../images/keyboard.jpg);
-    background: ;
-    background-repeat: no-repeat;linear-gradient(90deg, rgba(220, 83, 181, 0.7) 15%, rgba(109, 199, 239, 0.7) 82%);
+    background: linear-gradient(90deg, rgba(220, 83, 181, 0.7) 15%, rgba(109, 199, 239, 0.7) 82%);
+    background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     padding: 106px 0 106px;
